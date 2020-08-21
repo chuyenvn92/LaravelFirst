@@ -39,7 +39,7 @@ class StudentController extends Controller
         return view('edit',compact('student'));
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request, $id) {
         $this->validate($request,[
             'firstname' => 'required',
             'lastname' => 'required',
@@ -54,5 +54,10 @@ class StudentController extends Controller
         $student->phone = $request->phone;
         $student->save();
         return redirect(route('home'))->with('successMsg','Student Successfully Updated');
+    }
+
+    public function delete($id) {
+        Student::find($id)->delete();
+        return redirect(route('home'))->with('successMsg','Deleted Successfully');
     }
 }

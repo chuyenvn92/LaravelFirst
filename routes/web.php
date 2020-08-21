@@ -13,7 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'StudentController@index');
+Route::get('/', 'StudentController@index')->name('home');
+Route::get('/create', 'StudentController@create')->name('create');
+
+
+
 
 Route::get('/hello', 'TestController@index');
 

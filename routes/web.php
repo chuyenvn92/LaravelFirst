@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'StudentController@index');
+
+Route::get('/hello', 'TestController@index');
+
+Route::get('/user/{id}', function ($id) {
+    return "your ID " .$id;
 });
